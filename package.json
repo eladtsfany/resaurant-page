@@ -4,9 +4,8 @@
   "description": "This is a restaurant page using webpack.\r This is part of the odin-project curriculum.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "build-w": "webpack --watch"
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack --config webpack.dev.js --watch"
   },
   "author": "",
   "license": "ISC",
