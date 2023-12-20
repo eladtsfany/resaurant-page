@@ -9,4 +9,4 @@ function component() {
     return div;
 };
 
-content.appendChild(component());
+// content.appendChild(component());
