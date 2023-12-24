@@ -1,4 +1,66 @@
-.css-check {
+/* .css-check {
     font-size: 3rem;
     color: rgb(125, 46, 198);
+} */
+
+:root {
+    --font-family: Verdana, 'Roboto', 'Segoe UI', 'Arial', sans-serif;
+    --background-dark: #1f1f1f;
+    --background-light: #efefef;
+    --text-light: #efefef;
+    --text-dark: #1f1f1f;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    /*      1 row header:     */
+    /* grid-template-rows: minmax(120px, 3fr) minmax(480px, 12fr) minmax(40px, 1fr); */
+    /*      2 rows header:     */
+    grid-template-rows: minmax(160px, 4fr) minmax(480px, 12fr) minmax(40px, 1fr);
+}
+
+.container>div {
+    box-sizing: border-box;
+}
+
+#header {
+    background: var(--background-dark);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: .5em;
+}
+
+#content {
+    background: var(--background-light);
+}
+
+#footer {
+    background: var(--background-dark);
+}
+
+.title h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 4rem;
+}
+
+.navigate {
+    width: 60%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.navigate .item {
+    padding: 0.25em;
 }
