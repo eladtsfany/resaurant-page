@@ -1,14 +1,7 @@
-/* .css-check {
-    font-size: 3rem;
-    color: rgb(125, 46, 198);
-} */
-
 :root {
     --font-family: Verdana, 'Roboto', 'Segoe UI', 'Arial', sans-serif;
-    --background-dark: #1f1f1f;
-    --background-light: #efefef;
-    --text-light: #efefef;
-    --text-dark: #1f1f1f;
+    --color-dark: #1f1f1f;
+    --color-light: #efefef;
 }
 
 body {
@@ -19,9 +12,6 @@ body {
 .container {
     height: 100vh;
     display: grid;
-    /*      1 row header:     */
-    /* grid-template-rows: minmax(120px, 3fr) minmax(480px, 12fr) minmax(40px, 1fr); */
-    /*      2 rows header:     */
     grid-template-rows: minmax(160px, 4fr) minmax(480px, 12fr) minmax(40px, 1fr);
 }
 
@@ -30,8 +20,9 @@ body {
 }
 
 #header {
-    background: var(--background-dark);
-    color: var(--text-light);
+    font-size: 1.125rem;
+    background: var(--color-dark);
+    color: var(--color-light);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,27 +31,54 @@ body {
 }
 
 #content {
-    background: var(--background-light);
+    background: var(--color-light);
 }
 
 #footer {
-    background: var(--background-dark);
+    background: var(--color-dark);
 }
 
 .title h1 {
     margin: 0;
     font-weight: 600;
-    font-size: 4rem;
+    font-size: 4em;
 }
 
 .navigate {
-    width: 60%;
+    width: 50%;
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
 }
 
-.navigate .item {
+.navigate a {
     padding: 0.25em;
+    cursor: pointer;
+    position: relative;
+    text-wrap: nowrap;
+    border-radius: 4px;
+    transition: background-color 100ms ease, color 100ms ease;
+}
+
+.navigate a:hover {
+    background-color: #2f2f2f;
+    color: #fff;
+}
+
+.navigate a::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    border-color: transparent;
+    transition: width 300ms ease;
+}
+
+.navigate a:hover::after {
+    width: 100%;
 }
