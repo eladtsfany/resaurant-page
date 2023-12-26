@@ -2,11 +2,29 @@ import './styles.css';
 
 const content = document.getElementById('content');
 
-function component() {
-    const div = document.createElement('div');
-    div.textContent = 'JAVASCRIPT LOADED';
-    div.classList.add('css-check');
-    return div;
-};
+document.querySelectorAll('.navigate a')
+    .forEach(a => a.addEventListener('click', handleNavClick));
 
-// content.appendChild(component());
+function handleNavClick(e) {
+    // Delete existing DOM elements inside #content section
+    while (content.firstChild) content.removeChild(content.firstChild);
+
+    const dataName = e.target.getAttribute('data-name');
+    if (dataName === 'home') generateHome();
+    else if (dataName === 'menu') generateMenu();
+    else generateContact();
+}
+
+function generateHome() {
+    alert('clicked');
+    console.log('clicked');
+}
+function generateMenu() {
+    alert('clicked');
+    console.log('clicked');
+}
+function generateContact() {
+    alert('clicked');
+    console.log('clicked');
+}
+
