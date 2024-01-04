@@ -8,7 +8,7 @@ document.querySelectorAll('.navigate a')
 
 function handleNavClick(e) {
     // Delete existing DOM elements inside #content section
-    while (content.firstChild) content.removeChild(content.firstChild);
+    clearContentSection();
     // Toggle wanted nav-item and unmark currently active items
     toggleActive(e);
     // Populate content with the new active nav-item
@@ -18,6 +18,8 @@ function handleNavClick(e) {
     else generateContact();
 }
 
+function clearContentSection() { while (content.firstChild) content.removeChild(content.firstChild) };
+
 function toggleActive(e) {
     document.querySelectorAll('a.nav-item').forEach(item => {
         if (item.classList.contains('active')) item.classList.remove('active');
@@ -25,15 +27,62 @@ function toggleActive(e) {
     e.target.classList.add('active');
 }
 
-function generateHome() {
+function handleOrderButton() {
+    clearContentSection();
 
-    console.log('clicked');
+    const homeBtn = document.querySelector("a.nav-item[data-name='home']");
+    const menuBtn = document.querySelector("a.nav-item[data-name='menu']");
+    homeBtn.classList.remove('active');
+    menuBtn.classList.add('active');
+
+    generateMenu();
+};
+
+function generateHome() {
+    console.log('clicked on home');
+
+    // Elements creation
+    const homeContainer = document.createElement('div');
+    homeContainer.className = 'home-container';
+
+    const heading = document.createElement('h2');
+    heading.textContent = "Welcom to Tiny Town!";
+
+    const textWrapper = document.createElement('div');
+    textWrapper.className = 'text-wrapper';
+
+    const paragraph1 = document.createElement('p');
+    const paragraph2 = document.createElement('p');
+    paragraph1.textContent = "Here we offer a large variety of comforting homemade food for you to enjoy!";
+    paragraph2.textContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, non fugit id minima provident officiis. Illum illo et aut praesentium animi tenetur esse commodi facere, iure distinctio provident rerum eum.";
+
+    const btnWrapper = document.createElement('div');
+    btnWrapper.className = 'btn-wrapper';
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.id = 'orderButton';
+    btn.textContent = "Order Now!";
+    btn.setAttribute('data-name', 'menu');
+    btn.addEventListener('click', handleOrderButton);
+
+    // Append Elements
+    textWrapper.appendChild(paragraph1);
+    textWrapper.appendChild(paragraph2);
+
+    btnWrapper.appendChild(btn);
+
+    homeContainer.appendChild(heading);
+    homeContainer.appendChild(textWrapper);
+    homeContainer.appendChild(btnWrapper);
+
+    content.appendChild(homeContainer);
 }
 function generateMenu() {
-    console.log('clicked');
+    console.log('clicked on menu');
 }
 function generateContact() {
-    console.log('clicked');
+    console.log('clicked on contact');
 }
 
 function fillFooter() {
@@ -44,6 +93,7 @@ function fillFooter() {
     myIcon.src = githubIcon;
     myIcon.alt = 'github-logo';
     textDiv.textContent = 'Elad Tsfany';
+    textDiv.style.fontWeight = 600;
 
     dest.appendChild(myIcon);
     dest.appendChild(textDiv);
