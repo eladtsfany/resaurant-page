@@ -2,7 +2,7 @@
     --font-family: Verdana, 'Roboto', 'Segoe UI', 'Arial', sans-serif;
     --color-dark: #1f1f1f;
     --color-light: #efefef;
-    --color-theme: rgb(248, 116, 6);
+    --color-theme: rgb(244, 114, 9);
     --color-theme-dark: rgb(173, 83, 9);
     --color-brown: rgb(124, 66, 26);
     --color-brown-dark: rgb(78, 47, 26);
@@ -47,6 +47,7 @@ body {
     font-size: 0.875rem;
     color: var(--color-theme);
     padding: 0.125em;
+    letter-spacing: 0.25px;
 }
 
 #footer,
@@ -86,6 +87,7 @@ body {
     padding: 1px;
     /* background: rgb(114, 52, 8); */
     background: var(--color-brown-dark);
+    width: 35%;
 }
 
 .title-wrapper h1 {
@@ -106,6 +108,7 @@ body {
 .navigate .nav-item {
     font-weight: 600;
     padding: 0.75em 1em;
+    letter-spacing: 0.75px;
     cursor: pointer;
     position: relative;
     text-wrap: nowrap;
@@ -154,8 +157,7 @@ body {
     font-size: 1.125rem;
     height: clamp(260px, 65vh, 100%);
     width: 50%;
-    background: rgba(8, 8, 8, 0.5);
-    background: var(--color-bg-dark);
+    background: rgba(8, 8, 8, 0.8);
     color: var(--color-light);
     padding: 0.5em;
     display: flex;
@@ -163,7 +165,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     overflow: auto;
-    border: 16px solid var(--color-brown-dark);
+    border: 14px solid var(--color-brown-dark);
     border-radius: 0.5em;
     outline: 6px solid var(--color-brown);
     outline-offset: -10px;
@@ -176,6 +178,12 @@ body {
 
 .home-container p {
     margin: 0;
+    letter-spacing: 0.25px;
+}
+
+.home-container h2 {
+    letter-spacing: 0.5px;
+    font-size: 1.75em;
 }
 
 .text-wrapper {
@@ -200,4 +208,5 @@ body {
     border-radius: inherit;
     width: 45%;
     min-width: max-content;
+    letter-spacing: 1px;
 }
