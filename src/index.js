@@ -2,8 +2,9 @@ import './styles.css';
 import githubIcon from './images/github-mark-white.svg'
 
 const content = document.getElementById('content');
+const header = document.getElementById('header');
 
-document.querySelectorAll('.navigate a')
+header.querySelectorAll('.navigate a')
     .forEach(a => a.addEventListener('click', handleNavClick));
 
 function handleNavClick(e) {
@@ -21,17 +22,17 @@ function handleNavClick(e) {
 function clearContentSection() { while (content.firstChild) content.removeChild(content.firstChild) };
 
 function toggleActive(e) {
-    document.querySelectorAll('a.nav-item').forEach(item => {
+    header.querySelectorAll('a.nav-item').forEach(item => {
         if (item.classList.contains('active')) item.classList.remove('active');
     });
     e.target.classList.add('active');
 }
 
-function handleOrderButton() {
+function enterMenu() {
     clearContentSection();
 
-    const homeBtn = document.querySelector("a.nav-item[data-name='home']");
-    const menuBtn = document.querySelector("a.nav-item[data-name='menu']");
+    const homeBtn = header.querySelector("a.nav-item[data-name='home']");
+    const menuBtn = header.querySelector("a.nav-item[data-name='menu']");
     homeBtn.classList.remove('active');
     menuBtn.classList.add('active');
 
@@ -63,8 +64,7 @@ function generateHome() {
     btn.type = 'button';
     btn.id = 'orderButton';
     btn.textContent = "Order Now!";
-    btn.setAttribute('data-name', 'menu');
-    btn.addEventListener('click', handleOrderButton);
+    btn.addEventListener('click', enterMenu);
 
     // Append Elements
     textWrapper.appendChild(paragraph1);
@@ -98,4 +98,6 @@ function fillFooter() {
     dest.appendChild(myIcon);
     dest.appendChild(textDiv);
 };
+
+generateHome();
 fillFooter();

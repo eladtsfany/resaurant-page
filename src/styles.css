@@ -2,13 +2,18 @@
     --font-family: Verdana, 'Roboto', 'Segoe UI', 'Arial', sans-serif;
     --color-dark: #1f1f1f;
     --color-light: #efefef;
-    --color-theme: rgb(244, 114, 9);
-    --color-theme-dark: rgb(173, 83, 9);
+    --color-pumpkin: rgb(200, 80, 14);
+    --color-pumpkin-bright: rgb(244, 114, 9);
+    --color-pumpkin-dark: rgb(173, 83, 9);
     --color-brown: rgb(124, 66, 26);
     --color-brown-dark: rgb(78, 47, 26);
-    --color-bg-dark: rgba(8, 8, 8, 0.7);
+    --color-bg-dark: rgba(5, 5, 5, 0.9);
     --color-bg-light: rgba(225, 225, 225, 0.9);
-    --color-bg-beige: rgba(255, 206, 142, 0.9);
+    /* Testing Colors */
+    --color-cinnamon: rgb(210, 125, 45);
+    --color-fawn: rgb(229, 170, 112);
+    --color-wheat: rgb(245, 222, 179);
+    --color-theme: #fff;
 }
 
 body {
@@ -27,7 +32,7 @@ body {
 
 #header {
     background: var(--color-bg-dark);
-    color: var(--color-theme);
+    color: var(--color-pumpkin);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,7 +50,7 @@ body {
 #footer {
     background: var(--color-bg-dark);
     font-size: 0.875rem;
-    color: var(--color-theme);
+    color: var(--color-pumpkin);
     padding: 0.125em;
     letter-spacing: 0.25px;
 }
@@ -80,14 +85,14 @@ body {
     width: 1.125em;
 }
 
+
 #header hr {
     margin: 0;
-    border: 1px solid #000;
-    border-radius: 2px;
+    border: 1px solid black;
     padding: 1px;
-    /* background: rgb(114, 52, 8); */
+    background: rgb(114, 52, 8);
     background: var(--color-brown-dark);
-    width: 35%;
+    width: 36%;
 }
 
 .title-wrapper h1 {
@@ -133,7 +138,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--color-theme);
+    background-color: var(--color-pumpkin);
     border-radius: 2px;
     border-color: transparent;
     transition: width 400ms ease;
@@ -153,32 +158,29 @@ body {
 }
 
 .home-container {
+    font-size: 1.25em;
     box-sizing: border-box;
-    font-size: 1.125rem;
-    height: clamp(260px, 65vh, 100%);
-    width: 50%;
-    background: rgba(8, 8, 8, 0.8);
-    color: var(--color-light);
     padding: 0.5em;
+    padding-left: 4em;
+    padding: 0.5em 3em;
+    height: clamp(340px, 65vh, 100%);
+    width: 65%;
+    background: var(--color-bg-dark);
+    color: var(--color-light);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     overflow: auto;
-    border: 14px solid var(--color-brown-dark);
+    border: 6px solid var(--color-brown-dark);
     border-radius: 0.5em;
-    outline: 6px solid var(--color-brown);
-    outline-offset: -10px;
+    outline: 2px solid var(--color-brown);
+    outline-offset: -4px;
 }
 
 .home-container>* {
     margin: 0;
-    width: 80%;
-}
-
-.home-container p {
-    margin: 0;
-    letter-spacing: 0.25px;
+    width: 85%;
 }
 
 .home-container h2 {
@@ -186,10 +188,17 @@ body {
     font-size: 1.75em;
 }
 
-.text-wrapper {
+.home-container .text-wrapper {
     display: flex;
     flex-direction: column;
     gap: 1em;
+}
+
+.home-container p {
+    margin: 0;
+    letter-spacing: 0.25px;
+    line-height: 1.4;
+    width: 90%;
 }
 
 .btn-wrapper {
@@ -197,16 +206,30 @@ body {
 }
 
 #orderButton {
-    font-size: 1.25em;
+    font-size: 1.125em;
     font-weight: 600;
     font-family: var(--font-family);
     padding: 1em;
     color: inherit;
     cursor: pointer;
     background-color: var(--color-brown);
-    border: 5px solid var(--color-brown-dark);
+    border: 4px solid var(--color-brown-dark);
     border-radius: inherit;
-    width: 45%;
+    width: minmax(20%, 30%);
     min-width: max-content;
     letter-spacing: 1px;
+    transition: transform 300ms ease;
+}
+
+/* Order button color modifications */
+#orderButton {
+    border: 2px solid var(--color-light);
+    background-color: var(--color-pumpkin-dark);
+    color: var(--color-light);
+}
+
+#orderButton:hover {
+    transform: scale(1.05);
+    color: var(--color-light);
+    background-color: var(--color-brown);
 }
