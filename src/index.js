@@ -99,5 +99,5 @@ function fillFooter() {
     dest.appendChild(textDiv);
 };
 
-generateHome();
+// generateHome();
 fillFooter();
