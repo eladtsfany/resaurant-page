@@ -14,6 +14,9 @@
     --color-fawn: rgb(229, 170, 112);
     --color-wheat: rgb(245, 222, 179);
     --color-theme: #fff;
+    --color-bg-dark: rgba(3, 3, 3, 0.95);
+
+
 }
 
 body {
@@ -241,6 +244,8 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1.5em;
+    color: var(--color-light);
+    background: var(--color-bg-dark);
 }
 
 .cards-wrapper {
@@ -248,6 +253,7 @@ body {
     width: 80%;
     display: flex;
     flex-direction: column;
+    background-color: rgb(7,7,7);
 }
 
 .card {
