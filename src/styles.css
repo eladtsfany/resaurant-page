@@ -7,14 +7,20 @@
     --color-pumpkin-dark: rgb(173, 83, 9);
     --color-brown: rgb(124, 66, 26);
     --color-brown-dark: rgb(78, 47, 26);
-    --color-bg-dark: rgba(5, 5, 5, 0.9);
+    --color-bg-dark: rgba(3, 3, 3, 0.9);
     --color-bg-light: rgba(225, 225, 225, 0.9);
+
+    --color-lilac: #a57cff;
+    --color-lilac-light: #c7aefe;
+    --color-lavender: #ad5dfd;
+    --color-theme: #c7aefe;
+    --color-bg-theme: rgba(15, 1, 23, 0.97);
+
     /* Testing Colors */
     --color-cinnamon: rgb(210, 125, 45);
     --color-fawn: rgb(229, 170, 112);
     --color-wheat: rgb(245, 222, 179);
-    --color-theme: #fff;
-    --color-bg-dark: rgba(1, 1, 1, 0.96);
+    --color-bg-dark: rgba(1, 1, 1, 0.97);
 }
 
 body {
@@ -25,8 +31,9 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    background: url('./images/wideAnimated.jpg') no-repeat;
+    background: url('./images/cinema-town-animated-2.jpg') no-repeat;
     background-position: center;
+    /* background-size: 100% 100%; */
     background-size: cover;
     height: 100vh;
     overflow: auto;
@@ -34,8 +41,8 @@ body {
 }
 
 #header {
-    background: var(--color-bg-dark);
-    color: var(--color-pumpkin);
+    background: var(--color-bg-theme);
+    color: var(--color-theme);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,13 +56,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
+    flex-grow: 1;
 }
 
+
 #footer {
-    background: var(--color-bg-dark);
-    color: var(--color-pumpkin);
-    padding: 0.75em;
+    background: var(--color-bg-theme);
+    color: var(--color-theme);
+    padding: 0.5em;
     letter-spacing: 0.25px;
 }
 
@@ -74,6 +82,8 @@ body {
     gap: 0.25em;
     border-radius: 0.25em;
     transition: filter 150ms ease, background-color 150ms ease;
+    font-weight: 600;
+
 }
 
 #footer a:hover {
@@ -89,12 +99,15 @@ body {
     width: 1.125em;
 }
 
+#footer a>div {
+    font-weight: 600;
+}
+
 #header hr {
     margin: 0;
     border: 1px solid black;
     height: 1px;
-    background: rgb(114, 52, 8);
-    background: var(--color-brown-dark);
+    background: var(--color-lavender);
     width: 36%;
     min-width: 400px;
 }
@@ -144,7 +157,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--color-pumpkin);
+    background-color: var(--color-theme);
     border-radius: 1px;
     border-color: transparent;
     transition: width 400ms ease;
@@ -171,7 +184,7 @@ body {
     padding: 0.5em 3em;
     height: clamp(340px, 65vh, 100%);
     width: 65%;
-    background: var(--color-bg-dark);
+    background: var(--color-bg-theme);
     color: var(--color-light);
     display: flex;
     flex-direction: column;
@@ -186,7 +199,7 @@ body {
 
 .home-container>* {
     margin: 0;
-    width: 85%;
+    width: 90%;
 }
 
 .home-container h2 {
@@ -248,14 +261,14 @@ body {
     align-items: center;
     gap: 1.5em;
     color: var(--color-light);
-    background: var(--color-bg-dark);
+    background: var(--color-bg-theme);
     font-size: 1.25rem;
     padding: 1em;
 }
 
 .menu-container h2 {
     margin: 0;
-    font-size: 2em;
+    font-size: 1.75em;
     letter-spacing: 0.125rem;
     padding: .25em;
 }
