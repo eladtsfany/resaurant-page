@@ -83,6 +83,11 @@ function generateMenu() {
 }
 function generateContact() {
     console.log('clicked on contact');
+    // TEMPORARY GENERATES BLANK DIV TO DISPLAY BACKGROUND
+    const div = document.createElement('div');
+    div.style.height = '200vh';
+    content.append(div);
+    // END OF TEMP CODE
 }
 
 function fillFooter() {
