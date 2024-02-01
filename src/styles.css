@@ -51,7 +51,6 @@ body {
 #header .title-wrapper {
     font-size: 4em;
     padding: 0.25em;
-    line-height: 1.4;
     text-wrap: nowrap;
     letter-spacing: 2px;
     /* word-spacing: -0.125em; */
@@ -76,7 +75,8 @@ body {
 
 #footer {
     padding: 0.75em;
-    letter-spacing: 0.25px;
+    letter-spacing: 1px;
+    gap: 0.125em;
     border-top: 1px solid var(--color-lavender);
     /* box-shadow: 0 -2px 2px 1px var(--color-lavender-dark); */
     box-shadow: 0px calc(1vh * -2) calc(2vh) calc(1vh * -2) var(--color-lavender-dark);
@@ -86,6 +86,7 @@ body {
 #footer {
     background: var(--color-bg-theme);
     color: var(--color-theme);
+    line-height: 1.4;
 }
 
 #footer,
@@ -93,14 +94,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.125em;
 }
 
 #footer a {
     text-decoration: none;
     color: inherit;
     font-weight: 600;
-    padding: 0.25em 0.375em;
+    letter-spacing: 0.5px;
+    padding: 0.375em;
     gap: 0.25em;
     border-radius: 0.25em;
     transition: filter 150ms ease, background-color 150ms ease, color 150ms ease;
@@ -125,36 +126,50 @@ body {
 }
 
 .navigate {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(3, 1fr);
     min-width: 526px;
     width: calc(380px + 12vw);
     padding: 0.125em 0;
-    /* color: var(--color-lilac); */
     border-top: 1px solid var(--color-lavender);
+    /* color: var(--color-lilac); */
+}
+
+.navigate .grid-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigate>div.grid-cell:first-of-type {
+    justify-content: start;
+}
+
+.navigate>div.grid-cell:last-of-type {
+    justify-content: end;
 }
 
 .navigate a.nav-item {
     padding: 1.25em;
-    line-height: 1.3;
-    letter-spacing: 1px;
+    letter-spacing: 1.75px;
     cursor: pointer;
     position: relative;
     text-wrap: nowrap;
     min-width: 4em;
     text-align: center;
-    border-radius: 0.125rem;
-    /* transition: color 100ms ease, background-color 100ms ease, transform 250ms ease; */
-    transition: all 50ms ease, transform 200ms ease;
+    border: none;
+    transition: color 100ms ease, box-shadow 200ms ease, transform 200ms ease;
 }
 
 .navigate a.nav-item:hover {
     color: var(--color-light);
-    letter-spacing: 2px;
     transform: translateY(-3px);
-    transition: box-shadow 250ms ease-in, transform 200ms ease,letter-spacing 250ms ease;
-    box-shadow: 0px -4em 2em -4em var(--color-lavender-light) inset;
+    transition: color 75ms ease, box-shadow 300ms ease-out, transform 200ms ease;
+    /* box-shadow: 0px -4em 2em -4em var(--color-lavender) inset; */
+    /* box-shadow: 0px -3em 1.75em -2em var(--color-lavender-light) inset; */
+    /* box-shadow: 0px -2.5em 1.5em -2em var(--color-lavender-light) inset; */
+    box-shadow: 0px -1.25em 0.75em -1em var(--color-lavender-light) inset;
 }
 
 .navigate a::after {
@@ -163,25 +178,24 @@ body {
     bottom: 0px;
     left: 0px;
     width: 0;
-    min-height: 1px;
-    max-height: 1px;
-    background-color: var(--color-theme);
+    height: clamp(1px, 1px, 1px);
+    background-color: var(--color-lavender-dark);
     border: none;
-    /* transition: width 400ms ease, box-shadow 300ms ease; */
-    transition: all 325ms ease-out;
-    transition: all 325ms ease-out, background-color 50ms ease;
+    /* transition: width 400ms ease; */
+    transition: all 300ms ease-out, background-color 400ms ease-out;
+
 }
 
 .navigate a:hover::after,
 .navigate a.active::after {
     width: 100%;
-    background-color: var(--color-lavender-dark);
+    background-color: var(--color-lavender);
 }
 
 .navigate a.active {
     color: #fff;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1.25px;
     transform: translateY(-3px);
     pointer-events: none;
     box-shadow: 0px -4em 2em -4em var(--color-lilac) inset;
