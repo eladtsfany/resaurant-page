@@ -19,6 +19,7 @@ function handleNavClick(e) {
     else generateContact();
 }
 
+// Helper function that deletes any element inside the #content section.
 function clearContentSection() { while (content.firstChild) content.removeChild(content.firstChild) };
 
 function toggleActive(e) {
@@ -63,7 +64,7 @@ function generateHome() {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.id = 'orderButton';
-    btn.textContent = "Order Now!";
+    btn.textContent = "ORDER NOW";
     btn.addEventListener('click', enterMenu);
 
     // Append Elements
@@ -80,14 +81,58 @@ function generateHome() {
 }
 function generateMenu() {
     console.log('clicked on menu');
+
+    const menuContainer = document.createElement('div');
+    const heading = document.createElement('h2');
+    const cardsWrapper = document.createElement('div');
+
+    menuContainer.className = "menu-container";
+    heading.textContent = "MENU";
+    cardsWrapper.className = "cards-wrapper";
+
+    // Might change later to iterate over a cards images array
+    for (let i = 1; i < 7; i++) cardsWrapper.appendChild(cardComponent(i));
+
+    menuContainer.appendChild(heading);
+    menuContainer.appendChild(cardsWrapper);
+    content.appendChild(menuContainer);
 }
+
 function generateContact() {
-    console.log('clicked on contact');
+    console.log('clicked on contact us');
     // TEMPORARY GENERATES BLANK DIV TO DISPLAY BACKGROUND
     const div = document.createElement('div');
     div.style.height = '200vh';
     content.append(div);
     // END OF TEMP CODE
+}
+
+// A function that returns a built card template as an element.
+function cardComponent(id) {
+    const card = document.createElement('div');
+    const cardImage = new Image();
+    const cardHeading = document.createElement('h3');
+    const cardInfo = document.createElement('p');
+    const price = document.createElement('div');
+    const cardButton = document.createElement('a');
+
+    card.className = 'card';
+    cardImage.src = '#';
+    cardImage.className = "card-img";
+    cardHeading.textContent = `TEMP DISH ${id}`;
+    cardInfo.textContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloremque repellendus labore, est unde fuga deserunt.";
+    price.className = 'price';
+    price.textContent = "$12.90";
+    cardButton.href = '#';
+    cardButton.className = "card-btn";
+
+    card.appendChild(cardImage);
+    card.appendChild(cardHeading);
+    card.appendChild(cardInfo);
+    card.appendChild(price);
+    card.appendChild(cardButton);
+
+    return card;
 }
 
 function fillFooter() {
@@ -98,11 +143,10 @@ function fillFooter() {
     myIcon.src = githubIcon;
     myIcon.alt = 'github-logo';
     textDiv.textContent = 'Elad Tsfany';
-    textDiv.style.fontWeight = 600;
 
     dest.appendChild(myIcon);
     dest.appendChild(textDiv);
 };
 
-// generateHome();
+generateHome();
 fillFooter();
